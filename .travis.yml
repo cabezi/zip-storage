@@ -1,0 +1,12 @@
+language: go
+
+go:
+  - 1.9.2
+
+install:
+  - make
+
+cache:
+  directories:
+    - vendor
+    - $GOPATH/pkg
