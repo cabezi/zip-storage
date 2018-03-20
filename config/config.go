@@ -9,23 +9,23 @@ func init() {
 
 //Config
 type Config struct {
-	ORIGIN   string
-	WSURL    string
-	RPCURL   string
-	DBEngine string
-	DBName   string
-	DBUser   string
-	DBPWD    string
-	DBHost   string
-	DBPort   string
-	DBZone   string
+	ORIGIN   string `yaml:"origin"`
+	WSURL    string `yaml:"wsurl"`
+	RPCURL   string `yaml:"rpcurl"`
+	DBEngine string `yaml:"engine"`
+	DBName   string `yaml:"name"`
+	DBUser   string `yaml:"user"`
+	DBPWD    string `yaml:"password"`
+	DBHost   string `yaml:"host"`
+	DBPort   string `yaml:"port"`
+	DBZone   string `yaml:"zone"`
 }
 
 func NewDefaultConfig() *Config {
 	return &Config{
-		ORIGIN:   "http://127.0.0.1:8881/",
+		ORIGIN:   "http://127.0.0.1:8888/",
 		WSURL:    "ws://127.0.0.1:8888/",
-		RPCURL:   "http://127.0.0.1:8000",
+		RPCURL:   "http://127.0.0.1:8881",
 		DBEngine: "mysql",
 		DBName:   "zip_storage",
 		DBUser:   "root",

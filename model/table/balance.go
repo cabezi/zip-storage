@@ -35,7 +35,7 @@ func (balance *Balance) CreateIfNotExist(db *sql.DB) (string, error) {
 	sql := `
 	CREATE TABLE IF NOT EXISTS %s (
 	id BIGINT(20) UNSIGNED PRIMARY KEY AUTO_INCREMENT,
-	addr VARCHAR(255) NOT NULL COMMENT '账户地址',
+	addr VARCHAR(40) NOT NULL COMMENT '地址',
 	asset_id BIGINT(20) NOT NULL COMMENT '资产ID',
 	amount BIGINT(20) NOT NULL COMMENT '总额',
 	updated DATETIME NOT NULL COMMENT '更新时间',	

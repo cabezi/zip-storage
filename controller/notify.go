@@ -15,7 +15,7 @@ type notify struct {
 func newNotify(wsURL, origin string) *notify {
 	ws, err := websocket.Dial(wsURL, "", origin)
 	if err != nil {
-		log.Error(err)
+		panic(err)
 	}
 	return &notify{
 		heightChan: make(chan uint32, 10),

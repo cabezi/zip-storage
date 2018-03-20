@@ -1,16 +1,14 @@
-package mysql
+package database
 
 import (
 	"database/sql"
 
-	"github.com/cabezi/zip-storage/model/database"
-	// mysql driver
 	_ "github.com/go-sql-driver/mysql"
 )
 
 func init() {
 	mysql := NewMySQL()
-	database.Register(mysql.Name(), mysql)
+	Register(mysql.Name(), mysql)
 }
 
 //MySQL  mysql

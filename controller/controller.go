@@ -32,10 +32,11 @@ func NewControler(cfg *config.Config) *Controller {
 	}
 }
 
-func (c *Controller) receivePushHeight() {
+func (c *Controller) ReceivePushHeight() {
 	for {
 		select {
 		case height := <-c.no.heightChannel():
+			log.Debugln("recive websocket push height ", height)
 			for i := c.tmpHeight; i < c.checkBlockHeight(height); i++ {
 				block, err := c.cd.getBlock(i)
 				if err != nil {

@@ -1,7 +1,6 @@
-database:
-    engine: "mysql"
-    name: "mydb"
-    user: "root"
-    password: "root"
-    host: ""
-    port: 3306
+engine: "mysql"
+name: "zip_storage"
+user: "root"
+password: "root"
+host: "192.168.157.159"
+port: 3306

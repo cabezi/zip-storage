@@ -38,12 +38,12 @@ func (block *Block) CreateIfNotExist(db *sql.DB) (string, error) {
 	sql := `
 	CREATE TABLE IF NOT EXISTS %s (
 	id BIGINT(20) UNSIGNED PRIMARY KEY AUTO_INCREMENT,
-	hash VARCHAR(255) NOT NULL COMMENT '区块哈希',
-	pre_hash VARCHAR(255) NOT NULL COMMENT '前一个区块哈希',
-	state_hash VARCHAR(255) NOT NULL COMMENT 'state哈希',
+	hash VARCHAR(40) NOT NULL COMMENT '区块哈希',
+	pre_hash VARCHAR(40) NOT NULL COMMENT '前一个区块哈希',
+	state_hash VARCHAR(40) NOT NULL COMMENT 'state哈希',
 	created DATETIME NOT NULL COMMENT '创建时间',
 	nonce BIGINT(20) UNSIGNED NOT NULL COMMENT '区块nonce',
-	txs_merkle_hash VARCHAR(255) NOT NULL COMMENT '交易merkle哈希',	
+	txs_merkle_hash VARCHAR(40) NOT NULL COMMENT '交易merkle哈希',	
 	height BIGINT(20) UNSIGNED NOT NULL DEFAULT 0 COMMENT '区块高度',
 	UNIQUE KEY uniq_hash (hash)
 )ENGINE=INNODB DEFAULT CHARSET=utf8mb4 COMMENT='区块表';`
@@ -60,6 +60,7 @@ func (block *Block) QueryHeight(db *sql.DB) (uint32, error) {
 	defer rows.Close()
 
 	var height uint32
+
 	for rows.Next() {
 		if err := rows.Scan(&height); err != nil {
 			return 0, err
