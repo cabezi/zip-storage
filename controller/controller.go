@@ -40,7 +40,7 @@ func (c *Controller) ReceivePushHeight() {
 			for i := c.tmpHeight; i < c.checkBlockHeight(height); i++ {
 				block, err := c.cd.getBlock(i)
 				if err != nil {
-					log.Error(err)
+					log.Error("getblock err:", err)
 				}
 
 				tx, err := model.DB.Begin()
