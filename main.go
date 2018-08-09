@@ -11,6 +11,7 @@ import (
 )
 
 func main() {
+
 	log.Println("zip-storge start...")
 
 	yamlFile, err := ioutil.ReadFile(os.Args[1])
